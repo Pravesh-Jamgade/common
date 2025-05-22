@@ -101,7 +101,7 @@ CacheBlockInfo::updateUsage(BitsUsedType used)
 }
 
 int CacheBlockInfo::func_updateUsage(UInt32 off) {
-   unique_block_offset.insert(off);
+   unique_block_offset.insert(off/8);
    return unique_block_offset.size();
 } 
 

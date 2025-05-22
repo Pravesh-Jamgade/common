@@ -59,6 +59,17 @@ Cache::Cache(
    metadata_passthrough_loc(Sim()->getCfg()->getInt("perf_model/metadata/passthrough_loc")),
    potm_enabled(Sim()->getCfg()->getBool("perf_model/tlb/potm_enabled"))
 {
+
+   for(int i=0; i< 8; i++)
+   {
+      tlb_util[i] = 0;
+   }
+
+   for(int i=0; i< 9; i++)
+   {
+      tlb_block_util[i] = 0;
+   }
+   
    core_id_str = String(std::to_string(core_id).c_str());
 
    history_hit = std::vector<int>(num_sets, 0);
